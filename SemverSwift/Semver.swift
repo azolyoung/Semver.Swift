@@ -125,11 +125,11 @@ open class Semver {
     func diff(_ version2: String) -> Int{
         let version = Semver(version: version2)
         if (major.compare(version.major) != .orderedSame){
-            return major.compare(version.major).rawValue
+            return major.compare(version.major, options: NSString.CompareOptions.numeric).rawValue
         }
         
         if (minor.compare(version.minor) != .orderedSame){
-            return minor.compare(version.minor).rawValue
+            return minor.compare(version.minor, options: NSString.CompareOptions.numeric).rawValue
         }
         
         if (patch.compare(version.patch) != .orderedSame){
